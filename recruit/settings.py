@@ -25,7 +25,7 @@ SECRET_KEY = 'fp#^($jfx$5$qol&59shposx&h4=9(hgr$yrk6c6p@9gx6!5sx'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1','recruit.com']
 
 
 # Application definition
@@ -37,6 +37,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'jobapply',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -76,8 +77,10 @@ WSGI_APPLICATION = 'recruit.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'recruit',
+        'USER': 'root',
+        'PASSWORD': 'root',
     }
 }
 
@@ -100,3 +103,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
